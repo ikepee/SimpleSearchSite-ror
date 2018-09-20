@@ -1,0 +1,67 @@
+#coding:UTF-8
+<%= link_to image_tag('logo.png'), controller: "top", action: "index" %>
+</br>
+<%= @keyword %>の検索結果：
+<%= @rescount %>
+件
+<br>
+<table>
+    <tr>
+    <td>
+    <%= form_tag('/top/result', method: :post, name:"myform", onSubmit:"return check()") do %>
+    <%= text_field_tag('keyword', "#{@keyword}") %>
+    <input type="submit" value="検索" />
+    <% end %>
+    </td>
+    </tr>
+    <tr><td><hr></td></tr>
+<% if @res.length != 0 then %>
+<% @res.each do |single| %>
+    <tr>
+    <td>
+    <% titleString = single.title %>
+    <% commentString = single.comment %>
+    <% keys = @keyword.split(/\s/) %>
+    <% keys.uniq! %>
+    <% keys.each do |k| %>
+    <% titleString = titleString.gsub(/#{k}/, '<strong>' + k + '</strong>') %>
+    <% commentString = commentString.gsub(/#{k}/, '<strong>' + k + '</strong>') %>
+    <% end %>
+    <%= link_to "#{titleString}".html_safe, "#{single.url}" %>
+    <br>
+    <%= commentString.html_safe %>
+    </td>
+    </tr>
+<% end %>
+<% end %>
+<tr>
+<td align="center">
+</br>
+<% minpage = @page %>
+<% if minpage > 1 then minpage = minpage - 1 end %>
+<% maxpage = (@rescount.to_f / 5.to_f).ceil %>
+<% if maxpage > minpage + 4 then maxpage = minpage + 4 end%>
+<% if maxpage - minpage < 4 and minpage > 1 then minpage = maxpage - 4 end %>
+<% if minpage < 1 then minpage = 1 end %>
+<% if @page - 1 != 0 then %>
+<li>
+<%= link_to "前へ", controller: "top", action: "result", keyword: "#{@keyword}", page: "#{@page - 1}" %>
+</li>
+<% end %>
+<% for num in minpage..maxpage do %>
+<li>
+<% if num == @page then %>
+<%= num %>
+<% else %>
+<%= link_to "#{num}", controller: "top", action: "result", keyword: "#{@keyword}", page: "#{num}" %>
+<% end %>
+</li>
+<% end %>
+<% if @page + 1 <= maxpage then %>
+<li>
+<%= link_to "次へ", controller: "top", action: "result", keyword: "#{@keyword}", page: "#{@page + 1}" %>
+</li>
+<% end %>
+</td>
+</tr>
+</table>

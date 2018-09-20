@@ -1,0 +1,2 @@
+class Resultlist < ApplicationRecord
+end

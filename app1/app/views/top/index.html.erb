@@ -1,0 +1,7 @@
+<center>
+<%= image_tag('logo.png') %>
+<%= form_tag('/top/result', method: :post, name:"myform", onSubmit:"return check()") do %>
+<input type="text" name="keyword" />
+<input type="submit" value="検索" />
+<% end %>
+</center>

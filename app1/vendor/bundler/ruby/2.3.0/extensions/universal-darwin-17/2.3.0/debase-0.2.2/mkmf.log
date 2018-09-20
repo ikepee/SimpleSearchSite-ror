@@ -1,0 +1,59 @@
+have_header: checking for vm_core.h... -------------------- no
+
+"xcrun clang -o conftest -I/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/include/ruby-2.3.0/universal-darwin17 -I/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/include/ruby-2.3.0/ruby/backward -I/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/include/ruby-2.3.0 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -g -Os -pipe -DHAVE_GCC_ATOMIC_BUILTINS -iwithsysroot /usr/local/libressl/include conftest.c  -L. -L/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib -L.             -L /BuildRoot/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.Internal.sdk/usr/local/libressl/lib -L/BuildRoot/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.Internal.sdk/usr/local/lib   -arch x86_64 -arch i386   -lruby.2.3.0  -lpthread -ldl -lobjc "
+ld: warning: directory not found for option '-L/BuildRoot/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.Internal.sdk/usr/local/libressl/lib'
+ld: warning: directory not found for option '-L/BuildRoot/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.Internal.sdk/usr/local/lib'
+ld: warning: directory not found for option '-L/BuildRoot/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.Internal.sdk/usr/local/libressl/lib'
+ld: warning: directory not found for option '-L/BuildRoot/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.Internal.sdk/usr/local/lib'
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return 0;
+6: }
+/* end */
+
+"xcrun clang -I/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/include/ruby-2.3.0/universal-darwin17 -I/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/include/ruby-2.3.0/ruby/backward -I/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/include/ruby-2.3.0 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -g -Os -pipe -DHAVE_GCC_ATOMIC_BUILTINS -iwithsysroot /usr/local/libressl/include  -arch x86_64 -arch i386  -c conftest.c"
+conftest.c:3:10: fatal error: 'vm_core.h' file not found
+#include <vm_core.h>
+         ^~~~~~~~~~~
+1 error generated.
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <vm_core.h>
+/* end */
+
+--------------------
+
+have_header: checking for vm_core.h... -------------------- no
+
+"xcrun clang -I/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/include/ruby-2.3.0/universal-darwin17 -I/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/include/ruby-2.3.0/ruby/backward -I/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/include/ruby-2.3.0 -I. -I/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/include/ruby-2.3.0/ruby-2.3.7-p456  -g -Os -pipe -DHAVE_GCC_ATOMIC_BUILTINS -iwithsysroot /usr/local/libressl/include  -arch x86_64 -arch i386  -c conftest.c"
+conftest.c:3:10: fatal error: 'vm_core.h' file not found
+#include <vm_core.h>
+         ^~~~~~~~~~~
+1 error generated.
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <vm_core.h>
+/* end */
+
+--------------------
+
+have_header: checking for vm_core.h... -------------------- yes
+
+"xcrun clang -I/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/include/ruby-2.3.0/universal-darwin17 -I/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/include/ruby-2.3.0/ruby/backward -I/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/include/ruby-2.3.0 -I. -I/Users/ikep/Documents/rails/app1/vendor/bundler/ruby/2.3.0/gems/debase-ruby_core_source-0.10.3/lib/debase/ruby_core_source/ruby-2.3.6-p384  -g -Os -pipe -DHAVE_GCC_ATOMIC_BUILTINS -iwithsysroot /usr/local/libressl/include  -arch x86_64 -arch i386  -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <vm_core.h>
+/* end */
+
+--------------------
+
